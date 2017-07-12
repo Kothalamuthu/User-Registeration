@@ -7,7 +7,7 @@ var path= require('path');
 
 var conf= require('./conf.js');
 
-var body_prser= require('body_parser');
+var body_prser= require('body-parser');
 
 var session= require('express-session');
 

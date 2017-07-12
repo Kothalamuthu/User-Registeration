@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+</head>
+<body ng-app="app">
+<div>
+    <form  ng-controller="rwscontroller">
+
+        UserName:<input class="alright" type="text"  ng-model="uname" required><br/><br/>
+        Age     :<input class="alright" type="text"  ng-model="uage" required><br/><br/>
+        Email   :<input class="alright" type="mail"   ng-model="umail"  ><br/><br/>
+        Password:<input class="alright" type="password"   ng-model="upwd" required><br/><br/>
+        confirm password:<input type="password" ng-model="cpwd" required><br/><br/>
+        <button ng-click="sendData()" align="right">
+            Click me
+        </button>
+    </form>
+</div>
 </body>
 </html>

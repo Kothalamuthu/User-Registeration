@@ -3,7 +3,6 @@
  */
 var _=require("underscore");
 
-var conf = () ;
 
 var ENV= "development";
 

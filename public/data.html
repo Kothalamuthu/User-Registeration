@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+</head>
+<div>
+<ul>
+    <li ng-repeat="r in res">
+        {{ r.name + ' ' + r.age + ', ' + r.email}}
+    </li>
+</ul>
+    </div>
+</body>
+</html>

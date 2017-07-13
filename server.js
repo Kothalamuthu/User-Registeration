@@ -10,10 +10,7 @@ var conf= require('./conf.js');
 var body_parser= require('body-parser');
 
 
-<<<<<<< HEAD
-var mongo_store= require('connect-mongo') (session);
-=======
->>>>>>> 0e9dc74b4bb8aa551e67a1e07f8d25e8ff1694b4
+var mongo_store= require('connect-mongo');
 
 var app =express();
 

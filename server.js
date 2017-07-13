@@ -47,7 +47,8 @@ app.listen(hostport,function(){
 
 var webRoutes= require("./routes/routes.js");
 var webRoutes= new webRoutes(app);
-webRoutes.init;
+webRoutes.init();
+
 
 
 

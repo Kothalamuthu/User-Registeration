@@ -9,9 +9,12 @@
 </head>
 <body>
 <div>
-    <form  ng-controller="rwscontroller">
+    <form  ng-controller="rwscontroller" name="myform">
 
-        UserName:<input class="alright" type="text"  ng-model="uname" required><br/><br/>
+        UserName:<input name="myInput" class="alright" type="text"  ng-model="uname" ng-minlength="5"  ng-maxlength="10"  required>
+        <span ng-show="myform.myInput.$error.minlength">too short</span>
+        <span ng-show="myform.myInput.$error.maxlength">too long</span>
+        <br/><br/>
         Age     :<input class="alright" type="text"  ng-model="uage" required><br/><br/>
         Email   :<input class="alright" type="mail"   ng-model="umail"  ><br/><br/>
         Password:<input class="alright" type="password"   ng-model="upwd" required><br/><br/>
@@ -23,3 +26,5 @@
 </div>
 </body>
 </html>
+</form>
+

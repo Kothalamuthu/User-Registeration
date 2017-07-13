@@ -3,8 +3,10 @@ var app = angular.module("app", []);
 app.controller('rwscontroller', function($scope,$http) {
 
     $scope.sendData = function () {
+
+
         if ($scope.upwd == $scope.cpwd) {
-            var jsonobj = {"name": $scope.uname, "age": $scope.age, "email": $scope.email, "pwd": $scope.upwd}
+            var jsonobj = {"name": $scope.uname, "age": $scope.uage, "email": $scope.umail, "pwd": $scope.upwd}
 
             console.log(jsonobj, "jsonobj");
             $http.post('/login', jsonobj).then(function (data) {

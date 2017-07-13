@@ -6,10 +6,31 @@ var Service = function (app) {
 
 };
 module.exports = Service;
-/*find*/
-Service.prototype.findOneData = function (creterial,tablename,callback) {
+Service.prototype.insert_userdetails=function(insertdata,tablename,callback)
+
+{
     var self = this;
     var db = self.app.db;
+    var collection = db.collection(tablename);
+    collection.insert(insertdata,function(err,res)
+    {
+        if(res)
+            callback(null,res)
+        else
+            callback(err,null)
+    })
+
+};
+/*find*/
+<<<<<<< HEAD
+/*Service.prototype.findOneData = function (creteria,tablename,callback) {
+=======
+Service.prototype.findOneData = function (creterial,tablename,callback) {
+>>>>>>> fc99a09b4883c64c339c856d70c362244818a3ad
+    var self = this;
+    var db = self.app.db;
+
+
     var collection = db.collection(tablename);
 
     collection.findOne(creterial, function (err, user) {
@@ -22,8 +43,13 @@ Service.prototype.findOneData = function (creterial,tablename,callback) {
         }
     });
 };
+<<<<<<< HEAD
+/* Insert*
+Service.prototype.insertOneData = function (creteria,tablename,callback) {
+=======
 /* Insert*/
 Service.prototype.insertOneData = function (input,tablename,callback) {
+>>>>>>> fc99a09b4883c64c339c856d70c362244818a3ad
     var self = this;
     var db = self.app.db;
     var collection = db.collection(tablename);
@@ -38,14 +64,19 @@ Service.prototype.insertOneData = function (input,tablename,callback) {
     })
 };
 
+<<<<<<< HEAD
+/*update*
+ Service.prototype.updateDocument = function (creteria,updateData,tablename, callback) {
+=======
 /*update*/
  Service.prototype.updateDocument = function (creterial,tablename, callback) {
+>>>>>>> fc99a09b4883c64c339c856d70c362244818a3ad
  var self = this;
  var db = self.app.db;
  var collection = db.collection(tablename);
 
  //update table
- collection.update(Age, {$set: updateData}, function (err, resp) {
+ collection.update(creteria, {$set: updateData}, function (err, resp) {
  if (resp) {
  callback(err, true)
  }
@@ -55,7 +86,7 @@ Service.prototype.insertOneData = function (input,tablename,callback) {
  })
  };
 
-/*remove*/
+/*remove*
 Service.prototype.removeDocument = function (tablename,condition, callback) {
     var self = this;
     var db = self.app.db;
@@ -73,3 +104,4 @@ Service.prototype.removeDocument = function (tablename,condition, callback) {
         }
     });
 };
+*/

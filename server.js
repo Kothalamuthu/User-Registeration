@@ -9,14 +9,18 @@ var conf= require('./conf.js');
 
 var body_parser= require('body-parser');
 
-var session= require('express-session');
 
+<<<<<<< HEAD
 var mongo_store= require('connect-mongo') (session);
+=======
+>>>>>>> 0e9dc74b4bb8aa551e67a1e07f8d25e8ff1694b4
 
 var app =express();
 
 
 global.approot=path.resolve(__dirname);
+
+app.use(express.static(__dirname + '/public'));
 
 
 app.use(body_parser.urlencoded({
@@ -25,26 +29,30 @@ app.use(body_parser.urlencoded({
 
 app.use(body_parser.json());
 
-var mongoClient= require('mongodb').mongoClient;
-var objectId= require('mongodb').objectId;
+var mongoClient= require('mongodb').MongoClient;
 
 var url=conf.database.url;
 
 console.log("url",url);
+
+
+
+
 mongoClient.connect(url,function (err,db){
     app.db=db});
 
 app.conf=conf;
 
-var hostport=Number(host.web.port);
+var hostport=Number(conf.web.port);
 
 app.listen(hostport,function(){
     console.log("server running in the port:"+hostport);
 });
 
-var webRoutes= require(".routes/routes.js");
+var webRoutes= require("./routes/routes.js");
 var webRoutes= new webRoutes(app);
-webRoutes.init;
+webRoutes.init();
+
 
 
 

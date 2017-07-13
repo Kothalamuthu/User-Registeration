@@ -6,6 +6,8 @@ var _=require('underscore');
 var action= require('../action/action.js');
 
 var UIRoutes = function(app) {
+
+    console.log("enter log");
     this.app=app;
     this.actionInstance = new action(app);
 };
@@ -20,18 +22,34 @@ UIRoutes.prototype.init = function() {
     var self = this;
     var app = this.app;
 
+    console.log("enter init");
+
 
     app.post('/login', function(req, res) {
-        console.log(new Date(), "ENTER INTO  GET_SINGLE_STUDENT DETAILS");
-        self.actionInstance.getStudentName(req, function(err, result) {
+        console.log(new Date(), "ENTER INTO  login",req);
+
+
+        var result ={
+            name:'vignesh',
+            age:10
+        }
+
+        console.log(result.name);
+        res.send(result);
+       /* self.actionInstance.getStudentName(req, function(err, result) {
             console.log(new Date(), "RESPONSE INTO  GET_SINGLE_STUDENT DETAILS");
             res.send(result);
-        })
+        })*/
 
     });
-    app.get('/', function(req, res) {
+    app.get('/data', function(req, res) {
         console.log("enter log");
-        res.render( '/home/vignesh/Documents/User-Registration/public/index.html');
+        console.log("enter log");
+        console.log("enter log");
+        console.log("enter log");
+        console.log("enter log");
+        console.log("enter log");
+        //res.render( '/home/vignesh/Documents/User-Registration/public/index.html');
 
     });
 

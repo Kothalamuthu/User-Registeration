@@ -4,8 +4,12 @@ app.controller('rwscontroller', function($scope,$http) {
 
     $scope.sendData = function () {
         if ($scope.upwd == $scope.cpwd) {
-            var jsonobj = {"name": $scope.uname, "age": $scope.age, "email": $scope.email, "pwd": $scope.upwd,}
-            $http.post('url', jsonobj).then(function (data) {
+            var jsonobj = {"name": $scope.uname, "age": $scope.age, "email": $scope.email, "pwd": $scope.upwd}
+
+            console.log(jsonobj, "jsonobj");
+            $http.post('/login', jsonobj).then(function (data) {
+
+                console.log(data.data, "data response");
                 $scope.res = data;
             })
         }

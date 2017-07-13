@@ -22,14 +22,18 @@ Service.prototype.insert_userdetails=function(insertdata,tablename,callback)
 
 };
 /*find*/
+<<<<<<< HEAD
 /*Service.prototype.findOneData = function (creteria,tablename,callback) {
+=======
+Service.prototype.findOneData = function (creterial,tablename,callback) {
+>>>>>>> fc99a09b4883c64c339c856d70c362244818a3ad
     var self = this;
     var db = self.app.db;
 
 
     var collection = db.collection(tablename);
 
-    collection.findOne(creteria, function (err, user) {
+    collection.findOne(creterial, function (err, user) {
         //console.log(user);
         if (user === null) {
             callback(err, false);
@@ -39,8 +43,13 @@ Service.prototype.insert_userdetails=function(insertdata,tablename,callback)
         }
     });
 };
+<<<<<<< HEAD
 /* Insert*
 Service.prototype.insertOneData = function (creteria,tablename,callback) {
+=======
+/* Insert*/
+Service.prototype.insertOneData = function (input,tablename,callback) {
+>>>>>>> fc99a09b4883c64c339c856d70c362244818a3ad
     var self = this;
     var db = self.app.db;
     var collection = db.collection(tablename);
@@ -55,8 +64,13 @@ Service.prototype.insertOneData = function (creteria,tablename,callback) {
     })
 };
 
+<<<<<<< HEAD
 /*update*
  Service.prototype.updateDocument = function (creteria,updateData,tablename, callback) {
+=======
+/*update*/
+ Service.prototype.updateDocument = function (creterial,tablename, callback) {
+>>>>>>> fc99a09b4883c64c339c856d70c362244818a3ad
  var self = this;
  var db = self.app.db;
  var collection = db.collection(tablename);

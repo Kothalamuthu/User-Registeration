@@ -7,12 +7,12 @@ var Service = function (app) {
 };
 module.exports = Service;
 /*find*/
-Service.prototype.findOneData = function (creteria,tablename,callback) {
+Service.prototype.findOneData = function (creterial,tablename,callback) {
     var self = this;
     var db = self.app.db;
     var collection = db.collection(tablename);
 
-    collection.findOne(creteria, function (err, user) {
+    collection.findOne(creterial, function (err, user) {
         //console.log(user);
         if (user === null) {
             callback(err, false);
@@ -23,7 +23,7 @@ Service.prototype.findOneData = function (creteria,tablename,callback) {
     });
 };
 /* Insert*/
-Service.prototype.insertOneData = function (creteria,tablename,callback) {
+Service.prototype.insertOneData = function (input,tablename,callback) {
     var self = this;
     var db = self.app.db;
     var collection = db.collection(tablename);
@@ -39,7 +39,7 @@ Service.prototype.insertOneData = function (creteria,tablename,callback) {
 };
 
 /*update*/
- Service.prototype.updateDocument = function (creteria,tablename, callback) {
+ Service.prototype.updateDocument = function (creterial,tablename, callback) {
  var self = this;
  var db = self.app.db;
  var collection = db.collection(tablename);

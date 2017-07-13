@@ -1,4 +1,4 @@
-/**
+/**npm
  * Created by w5rtc on 11/7/17.
  */
 var express= require('express')
@@ -7,11 +7,11 @@ var path= require('path');
 
 var conf= require('./conf.js');
 
-var body_prser= require('body-parser');
+var body_parser= require('body-parser');
 
 var session= require('express-session');
 
-var momgo_store= require('connect-mongo') (session);
+var mongo_store= require('connect-mongo') (session);
 
 var app =express();
 

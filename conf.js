@@ -7,8 +7,8 @@ var conf={};
 
 var ENV= "development";
 
-var envconf = requires(".conf/conf-"+ENV+".js");
+var envconf = require("./conf/conf-" + ENV + ".js")
 
-conf=_.extent(envconf);
+conf = _.extend(envconf);
 
 module.exports=conf;

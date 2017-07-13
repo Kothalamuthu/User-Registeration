@@ -1,12 +1,35 @@
-/**
- * Created by w5rtc on 11/7/17.
- */
-var apiService= require("./action/action.js");
-var _= require("underscore");
+var ApiService = require('../service/service.js');
 
-var apiAction= function(app){
-    this.app= app;
-    this.appServiceInstanc=new apiService(app);
+
+var ApiActions = function (app) {
+    this.app = app;
+    this.apiServiceInstance = new ApiService(app);
 };
+module.exports = ApiActions;
 
-module.exports = apiAction;
+ApiActions.prototype.getStudentName = function (req, callback) {
+    var self = this;
+    var responseObject = {};
+    var query = {
+        userID: req.body.userID,
+    };
+
+    var criteria1 = {
+        condition: query
+    };
+
+    var tableName = 'user';
+    self.apiServiceInstance.insertOneData(tableName, criteria1, function (err, data) {
+        if (data.length > 0) {
+            responseObject['status'] = 'success';
+            responseObject['data'] = data;
+            callback(null, responseObject)
+
+        }
+        else {
+            responseObject['status'] = 'error';
+            responseObject['data'] = [];
+            callback(null, responseObject)
+        }
+    });
+};

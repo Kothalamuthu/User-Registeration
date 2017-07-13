@@ -7,16 +7,16 @@ var path= require('path');
 
 var conf= require('./conf.js');
 
-var body_prser= require('body-parser');
+var body_parser= require('body-parser');
 
-var session= require('express-session');
 
-var momgo_store= require('connect-mongo') (session);
 
 var app =express();
 
 
 global.approot=path.resolve(__dirname);
+
+app.use(express.static(__dirname + '/public'));
 
 
 app.use(body_parser.urlencoded({
@@ -25,24 +25,27 @@ app.use(body_parser.urlencoded({
 
 app.use(body_parser.json());
 
-var mongoClient= require('mongodb').mongoClient;
-var objectId= require('mongodb').objectId;
+var mongoClient= require('mongodb').MongoClient;
 
 var url=conf.database.url;
 
 console.log("url",url);
+
+
+
+
 mongoClient.connect(url,function (err,db){
     app.db=db});
 
 app.conf=conf;
 
-var hostport=Number(host.web.port);
+var hostport=Number(conf.web.port);
 
 app.listen(hostport,function(){
     console.log("server running in the port:"+hostport);
 });
 
-var webRoutes= require(".routes/routes.js");
+var webRoutes= require("./routes/routes.js");
 var webRoutes= new webRoutes(app);
 webRoutes.init;
 

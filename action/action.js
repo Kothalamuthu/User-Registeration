@@ -7,15 +7,49 @@ var ApiActions = function (app) {
 };
 module.exports = ApiActions;
 
-ApiActions.prototype.getStudentName = function (req, callback) {
+ApiActions.prototype.get_userdetails=function(req,callback)
+{
+    console.log("Enter into set function");
+
+
+
+
+    var tablename='user';
+    var insertdata={
+        name:req.name ?  req.name:null,
+        age:req.age ?  req.age:null,
+        email:req.email? req.email:null,
+        pwd:req.pwd? req.pwd:null
+    }
+    this.apiServiceInstance.insert_userdetails(insertdata,tablename,function(err,res)
+    {
+        if(res){
+
+            callback(null,res);
+
+        }
+        else
+            callback(err,null);
+
+    })
+
+
+};
+
+
+
+/*ApiActions.prototype.setuser = function (req, callback) {
     var self = this;
     var responseObject = {};
-    var query = {
-        userID: req.body.userID,
+    var data = {
+       name:req.body.name,
+       age:req.body.age,
+       email:req.body.email,
+        pwd:req.body.pwd
     };
 
     var criteria1 = {
-        condition: query
+        condition: data
     };
 
     var tableName = 'user';
@@ -32,4 +66,4 @@ ApiActions.prototype.getStudentName = function (req, callback) {
             callback(null, responseObject)
         }
     });
-};
+};*/

@@ -6,10 +6,27 @@ var Service = function (app) {
 
 };
 module.exports = Service;
-/*find*/
-Service.prototype.findOneData = function (creteria,tablename,callback) {
+Service.prototype.insert_userdetails=function(insertdata,tablename,callback)
+
+{
     var self = this;
     var db = self.app.db;
+    var collection = db.collection(tablename);
+    collection.insert(insertdata,function(err,res)
+    {
+        if(res)
+            callback(null,res)
+        else
+            callback(err,null)
+    })
+
+};
+/*find*/
+/*Service.prototype.findOneData = function (creteria,tablename,callback) {
+    var self = this;
+    var db = self.app.db;
+
+
     var collection = db.collection(tablename);
 
     collection.findOne(creteria, function (err, user) {
@@ -22,7 +39,7 @@ Service.prototype.findOneData = function (creteria,tablename,callback) {
         }
     });
 };
-/* Insert*/
+/* Insert*
 Service.prototype.insertOneData = function (creteria,tablename,callback) {
     var self = this;
     var db = self.app.db;
@@ -38,14 +55,14 @@ Service.prototype.insertOneData = function (creteria,tablename,callback) {
     })
 };
 
-/*update*/
- Service.prototype.updateDocument = function (creteria,tablename, callback) {
+/*update*
+ Service.prototype.updateDocument = function (creteria,updateData,tablename, callback) {
  var self = this;
  var db = self.app.db;
  var collection = db.collection(tablename);
 
  //update table
- collection.update(Age, {$set: updateData}, function (err, resp) {
+ collection.update(creteria, {$set: updateData}, function (err, resp) {
  if (resp) {
  callback(err, true)
  }
@@ -55,7 +72,7 @@ Service.prototype.insertOneData = function (creteria,tablename,callback) {
  })
  };
 
-/*remove*/
+/*remove*
 Service.prototype.removeDocument = function (tablename,condition, callback) {
     var self = this;
     var db = self.app.db;
@@ -73,3 +90,4 @@ Service.prototype.removeDocument = function (tablename,condition, callback) {
         }
     });
 };
+*/
